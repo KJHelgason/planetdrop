@@ -1,0 +1,407 @@
+[gd_scene load_steps=31 format=3 uid="uid://df3eqs3b02jvh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8hoh0"]
+[ext_resource type="Texture2D" uid="uid://bubdfinfhrs5r" path="res://lvl1_Background.png" id="2_tu7yd"]
+[ext_resource type="PackedScene" uid="uid://b26vasimh81j0" path="res://1Ball.tscn" id="5_1gjh4"]
+[ext_resource type="Texture2D" uid="uid://dh7aymcsd3l1n" path="res://cloud.png" id="6_5wme0"]
+[ext_resource type="Script" path="res://cloud.gd" id="6_g75l5"]
+[ext_resource type="PackedScene" uid="uid://c8m8ly6ximqw1" path="res://2Ball.tscn" id="6_xajwb"]
+[ext_resource type="PackedScene" uid="uid://birswuy5jrtq5" path="res://3Ball.tscn" id="7_s0x2d"]
+[ext_resource type="PackedScene" uid="uid://1wdv0cq14w6f" path="res://4Ball.tscn" id="8_mmqei"]
+[ext_resource type="PackedScene" uid="uid://u6qlcb801lku" path="res://5Ball.tscn" id="8_xsnos"]
+[ext_resource type="Texture2D" uid="uid://n3bmk7vdn6y8" path="res://ship1.png" id="9_70rn3"]
+[ext_resource type="PackedScene" uid="uid://cs5dwob6lsrck" path="res://goldBall.tscn" id="9_n0fwu"]
+[ext_resource type="Texture2D" uid="uid://bxtdkmk3icc7u" path="res://ship2.png" id="10_oeadu"]
+[ext_resource type="Texture2D" uid="uid://v3eygb2v4kfc" path="res://ship3.png" id="11_ebke2"]
+[ext_resource type="Texture2D" uid="uid://bx320xok5wm1n" path="res://ship4.png" id="12_73222"]
+[ext_resource type="Texture2D" uid="uid://cfspr1ipfn6aw" path="res://ship5.png" id="13_kxsbi"]
+[ext_resource type="Texture2D" uid="uid://n3tmbi3sy6y0" path="res://ship6.png" id="14_ohx7g"]
+[ext_resource type="Script" path="res://upgrades.gd" id="15_pjruh"]
+[ext_resource type="Script" path="res://score_manager.gd" id="16_4ksux"]
+[ext_resource type="Texture2D" uid="uid://d4k2vqeqghxs0" path="res://1.png" id="16_k6swc"]
+[ext_resource type="Texture2D" uid="uid://dqma4fnbytg0d" path="res://6.png" id="17_lsjv4"]
+[ext_resource type="Texture2D" uid="uid://ddauyo5rdxy51" path="res://2.png" id="18_i87ru"]
+[ext_resource type="Texture2D" uid="uid://cgihjfecfyl6g" path="res://4.png" id="19_jgc8e"]
+[ext_resource type="Texture2D" uid="uid://dbp5iuv2otnv4" path="res://3.png" id="20_xp1xm"]
+[ext_resource type="Texture2D" uid="uid://5h8orglkuxqv" path="res://5.png" id="21_nn1h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yuue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nh4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nanrt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7g3vy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_70rn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oeadu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ebke2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oeadu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_70rn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_73222")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kxsbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ohx7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kxsbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_73222")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5wme0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vpmv"]
+radius = 5.545
+height = 170.99
+
+[sub_resource type="LabelSettings" id="LabelSettings_qi6nb"]
+font_size = 50
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8hoh0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = ExtResource("2_tu7yd")
+
+[node name="Left" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("RectangleShape2D_3yuue")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+
+[node name="Right" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("RectangleShape2D_0nh4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+shape = SubResource("RectangleShape2D_nanrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottom"]
+
+[node name="Cloud" type="StaticBody2D" parent="."]
+position = Vector2(690.495, 68.455)
+script = ExtResource("6_g75l5")
+one_ball_scene = ExtResource("5_1gjh4")
+two_ball_scene = ExtResource("6_xajwb")
+three_ball_scene = ExtResource("7_s0x2d")
+four_ball_scene = ExtResource("8_mmqei")
+five_ball_scene = ExtResource("8_xsnos")
+gold_ball_scene = ExtResource("9_n0fwu")
+
+[node name="Line2D" type="Line2D" parent="Cloud"]
+position = Vector2(48.12, 0)
+points = PackedVector2Array(-46.615, -0.455002, -46.615, 777.545)
+width = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud"]
+position = Vector2(0, -0.455)
+scale = Vector2(0.203, 0.195)
+texture = ExtResource("6_5wme0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cloud"]
+visible = false
+scale = Vector2(0.203, 0.203)
+sprite_frames = SubResource("SpriteFrames_7g3vy")
+autoplay = "default"
+frame = 21
+frame_progress = 1.0
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloud"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0vpmv")
+
+[node name="BallSpawnTimer" type="Timer" parent="Cloud"]
+one_shot = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 244.0
+offset_top = 288.0
+offset_right = 284.0
+offset_bottom = 328.0
+scale = Vector2(1.665, 1.665)
+
+[node name="scoreLabel" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 485.0
+offset_right = 403.0
+offset_bottom = 554.0
+text = "0"
+label_settings = SubResource("LabelSettings_qi6nb")
+horizontal_alignment = 1
+
+[node name="UpgradesPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_pjruh")
+
+[node name="GravityButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1161.0
+offset_top = 263.0
+offset_right = 1311.0
+offset_bottom = 328.0
+focus_mode = 0
+icon = ExtResource("16_k6swc")
+flat = true
+expand_icon = true
+
+[node name="EraserButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1158.0
+offset_top = 419.0
+offset_right = 1318.0
+offset_bottom = 483.0
+focus_mode = 0
+icon = ExtResource("17_lsjv4")
+flat = true
+expand_icon = true
+
+[node name="BombButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1158.0
+offset_top = 573.0
+offset_right = 1308.0
+offset_bottom = 638.0
+focus_mode = 0
+icon = ExtResource("18_i87ru")
+flat = true
+expand_icon = true
+
+[node name="BallDropButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1391.0
+offset_top = 419.0
+offset_right = 1551.0
+offset_bottom = 483.0
+focus_mode = 0
+icon = ExtResource("19_jgc8e")
+flat = true
+expand_icon = true
+
+[node name="SpeedButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1388.0
+offset_top = 265.0
+offset_right = 1548.0
+offset_bottom = 329.0
+focus_mode = 0
+icon = ExtResource("20_xp1xm")
+flat = true
+expand_icon = true
+
+[node name="GoldBallButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 574.0
+offset_right = 1540.0
+offset_bottom = 639.0
+focus_mode = 0
+icon = ExtResource("21_nn1h2")
+flat = true
+expand_icon = true
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("16_4ksux")

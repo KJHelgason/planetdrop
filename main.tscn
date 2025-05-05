@@ -1,0 +1,432 @@
+[gd_scene load_steps=38 format=3 uid="uid://df3eqs3b02jvh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8hoh0"]
+[ext_resource type="Texture2D" uid="uid://b701t8olnqn8v" path="res://Images/Backgrounds/Background_Endless.png" id="2_iiwtb"]
+[ext_resource type="Script" path="res://rule_image.gd" id="2_kw1nl"]
+[ext_resource type="Texture2D" uid="uid://b8fjl70lbwktd" path="res://Images/menus/endless.png" id="3_hsc5l"]
+[ext_resource type="AudioStream" uid="uid://cmbkf8bletes3" path="res://Sounds/bubble-pop.mp3" id="4_62owl"]
+[ext_resource type="PackedScene" uid="uid://b26vasimh81j0" path="res://1Ball.tscn" id="4_iscxv"]
+[ext_resource type="PackedScene" uid="uid://c8m8ly6ximqw1" path="res://2Ball.tscn" id="5_akko6"]
+[ext_resource type="Script" path="res://cloud.gd" id="6_g75l5"]
+[ext_resource type="PackedScene" uid="uid://birswuy5jrtq5" path="res://3Ball.tscn" id="6_sjpq6"]
+[ext_resource type="PackedScene" uid="uid://1wdv0cq14w6f" path="res://4Ball.tscn" id="7_ns0ob"]
+[ext_resource type="PackedScene" uid="uid://u6qlcb801lku" path="res://5Ball.tscn" id="8_xtk7s"]
+[ext_resource type="PackedScene" uid="uid://cs5dwob6lsrck" path="res://goldBall.tscn" id="9_86g2p"]
+[ext_resource type="Texture2D" uid="uid://d4k2vqeqghxs0" path="res://Images/logos/1.png" id="13_60igc"]
+[ext_resource type="Texture2D" uid="uid://dl4woxsfjlnnl" path="res://Images/Ships/blue.png" id="13_i11kc"]
+[ext_resource type="Texture2D" uid="uid://dqma4fnbytg0d" path="res://Images/logos/6.png" id="14_eiwcc"]
+[ext_resource type="Texture2D" uid="uid://ddauyo5rdxy51" path="res://Images/logos/2.png" id="15_5u22r"]
+[ext_resource type="Script" path="res://upgrades.gd" id="15_pjruh"]
+[ext_resource type="Script" path="res://score_manager.gd" id="16_4ksux"]
+[ext_resource type="Texture2D" uid="uid://cgihjfecfyl6g" path="res://Images/logos/4.png" id="16_krdqs"]
+[ext_resource type="AudioStream" uid="uid://vmvd2u45k4i2" path="res://Sounds/drop.mp3" id="17_o0rji"]
+[ext_resource type="Texture2D" uid="uid://dbp5iuv2otnv4" path="res://Images/logos/3.png" id="17_s13d3"]
+[ext_resource type="Texture2D" uid="uid://5h8orglkuxqv" path="res://Images/logos/5.png" id="18_hqque"]
+[ext_resource type="Script" path="res://end_game_screen.gd" id="21_th5m1"]
+[ext_resource type="AudioStream" uid="uid://dcarc1mnycd4" path="res://Sounds/ding.mp3" id="22_a2p2p"]
+[ext_resource type="Texture2D" uid="uid://c5pyxj0d23uy0" path="res://Images/fx/pop.png" id="24_7qahh"]
+[ext_resource type="AudioStream" uid="uid://du417csdpt1sl" path="res://Sounds/win.mp3" id="25_0hx3j"]
+[ext_resource type="Texture2D" uid="uid://kwwa82tuvhxd" path="res://Images/menus/you_win.png" id="25_t3ars"]
+[ext_resource type="Texture2D" uid="uid://bcrdn40ffr4y4" path="res://Images/menus/you_lose.png" id="26_2sxoj"]
+[ext_resource type="Script" path="res://pause_screen.gd" id="29_od4yp"]
+[ext_resource type="Texture2D" uid="uid://dcc1y24yc5w1v" path="res://Images/menus/Pause_menu.png" id="30_2t00n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yuue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nh4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nanrt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vpmv"]
+radius = 5.545
+height = 170.99
+
+[sub_resource type="LabelSettings" id="LabelSettings_qi6nb"]
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu42f"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n715g"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.941176, 0.917647, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8hoh0")
+
+[node name="RuleImage" type="Control" parent="."]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_kw1nl")
+
+[node name="StartButton" type="Button" parent="RuleImage"]
+process_mode = 3
+top_level = true
+z_index = 1
+layout_mode = 0
+offset_left = 589.0
+offset_top = 550.0
+offset_right = 1016.0
+offset_bottom = 636.0
+mouse_default_cursor_shape = 2
+action_mode = 0
+flat = true
+
+[node name="RuleImageBackground" type="TextureRect" parent="RuleImage"]
+top_level = true
+layout_mode = 0
+offset_left = 399.0
+offset_top = 225.0
+offset_right = 1207.0
+offset_bottom = 677.0
+texture = ExtResource("3_hsc5l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Boop" type="AudioStreamPlayer2D" parent="RuleImage"]
+process_mode = 3
+stream = ExtResource("4_62owl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = ExtResource("2_iiwtb")
+
+[node name="Left" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("RectangleShape2D_3yuue")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+
+[node name="Right" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("RectangleShape2D_0nh4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+shape = SubResource("RectangleShape2D_nanrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottom"]
+
+[node name="Top" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+shape = SubResource("RectangleShape2D_nanrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Top"]
+
+[node name="Cloud" type="StaticBody2D" parent="."]
+position = Vector2(807.495, 68.455)
+script = ExtResource("6_g75l5")
+one_ball_scene = ExtResource("4_iscxv")
+two_ball_scene = ExtResource("5_akko6")
+three_ball_scene = ExtResource("6_sjpq6")
+four_ball_scene = ExtResource("7_ns0ob")
+five_ball_scene = ExtResource("8_xtk7s")
+gold_ball_scene = ExtResource("9_86g2p")
+
+[node name="Line2D" type="Line2D" parent="Cloud"]
+position = Vector2(48.12, 0)
+points = PackedVector2Array(-46.615, -0.455002, -46.615, 777.545)
+width = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud"]
+position = Vector2(0, -0.455)
+scale = Vector2(0.203, 0.195)
+texture = ExtResource("13_i11kc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloud"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0vpmv")
+
+[node name="BallSpawnTimer" type="Timer" parent="Cloud"]
+one_shot = true
+
+[node name="drop" type="AudioStreamPlayer2D" parent="Cloud"]
+position = Vector2(-690.495, -68.455)
+stream = ExtResource("17_o0rji")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 244.0
+offset_top = 288.0
+offset_right = 284.0
+offset_bottom = 328.0
+scale = Vector2(1.665, 1.665)
+
+[node name="scoreLabel" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 485.0
+offset_right = 403.0
+offset_bottom = 554.0
+text = "0"
+label_settings = SubResource("LabelSettings_qi6nb")
+horizontal_alignment = 1
+
+[node name="highScoreLabel" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 693.0
+offset_right = 403.0
+offset_bottom = 762.0
+text = "0"
+label_settings = SubResource("LabelSettings_qi6nb")
+horizontal_alignment = 1
+
+[node name="UpgradesPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_pjruh")
+
+[node name="GravityButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1190.0
+offset_top = 252.0
+offset_right = 1298.0
+offset_bottom = 406.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Cost: 50"
+icon = ExtResource("13_60igc")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="EraserButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1190.0
+offset_top = 401.0
+offset_right = 1298.0
+offset_bottom = 509.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Cost: 25"
+icon = ExtResource("14_eiwcc")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="BombButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1190.0
+offset_top = 550.0
+offset_right = 1298.0
+offset_bottom = 658.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Cost: 10"
+icon = ExtResource("15_5u22r")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="BallDropButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1428.0
+offset_top = 401.0
+offset_right = 1536.0
+offset_bottom = 509.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Cost: 300"
+icon = ExtResource("16_krdqs")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="SpeedButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1428.0
+offset_top = 549.0
+offset_right = 1536.0
+offset_bottom = 703.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Cost: 150"
+icon = ExtResource("17_s13d3")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="GoldBallButton" type="Button" parent="UpgradesPanel"]
+layout_mode = 0
+offset_left = 1428.0
+offset_top = 252.0
+offset_right = 1536.0
+offset_bottom = 406.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Cost: 1000"
+icon = ExtResource("18_hqque")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="HoverDescription" type="Label" parent="UpgradesPanel"]
+visible = false
+layout_mode = 0
+offset_left = 1143.0
+offset_top = 209.0
+offset_right = 1590.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_lu42f")
+text = " awdawdawdawdwadwadwad "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ding" type="AudioStreamPlayer2D" parent="UpgradesPanel"]
+stream = ExtResource("22_a2p2p")
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("16_4ksux")
+
+[node name="MergeDelayTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="EndGameScreen" type="Control" parent="."]
+visible = false
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("21_th5m1")
+win_texture = ExtResource("25_t3ars")
+lose_texture = ExtResource("26_2sxoj")
+
+[node name="RainParticles" type="CPUParticles2D" parent="EndGameScreen"]
+process_mode = 2
+emitting = false
+amount = 200
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("24_7qahh")
+emission_shape = 3
+emission_rect_extents = Vector2(1600, 800)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+
+[node name="loseSound" type="AudioStreamPlayer2D" parent="EndGameScreen"]
+process_mode = 2
+stream = ExtResource("25_0hx3j")
+
+[node name="WinLoseImage" type="TextureRect" parent="EndGameScreen"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 227.0
+offset_right = 1234.0
+offset_bottom = 679.0
+texture = ExtResource("25_t3ars")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackToTitleButton" type="Button" parent="EndGameScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 493.0
+offset_top = 508.0
+offset_right = 1097.0
+offset_bottom = 632.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="PauseScreen" type="Control" parent="."]
+process_mode = 2
+visible = false
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("29_od4yp")
+
+[node name="Boop" type="AudioStreamPlayer2D" parent="PauseScreen"]
+process_mode = 3
+stream = ExtResource("4_62owl")
+
+[node name="EscapeMenuBackground" type="TextureRect" parent="PauseScreen"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 227.0
+offset_right = 1234.0
+offset_bottom = 679.0
+texture = ExtResource("30_2t00n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContinueButton" type="Button" parent="PauseScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 596.0
+offset_top = 393.0
+offset_right = 1002.0
+offset_bottom = 463.0
+mouse_default_cursor_shape = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_n715g")
+flat = true
+
+[node name="RestartButton" type="Button" parent="PauseScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 620.0
+offset_top = 468.0
+offset_right = 980.0
+offset_bottom = 538.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="BackToTitleButton" type="Button" parent="PauseScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 522.0
+offset_top = 539.0
+offset_right = 1077.0
+offset_bottom = 613.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[connection signal="mouse_entered" from="UpgradesPanel/GravityButton" to="UpgradesPanel" method="_on_gravity_button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradesPanel/GravityButton" to="UpgradesPanel" method="_on_gravity_button_mouse_exited"]
+[connection signal="mouse_entered" from="UpgradesPanel/EraserButton" to="UpgradesPanel" method="_on_eraser_button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradesPanel/EraserButton" to="UpgradesPanel" method="_on_eraser_button_mouse_exited"]
+[connection signal="mouse_entered" from="UpgradesPanel/BombButton" to="UpgradesPanel" method="_on_bomb_button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradesPanel/BombButton" to="UpgradesPanel" method="_on_bomb_button_mouse_exited"]
+[connection signal="mouse_entered" from="UpgradesPanel/BallDropButton" to="UpgradesPanel" method="_on_ball_drop_button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradesPanel/BallDropButton" to="UpgradesPanel" method="_on_ball_drop_button_mouse_exited"]
+[connection signal="mouse_entered" from="UpgradesPanel/SpeedButton" to="UpgradesPanel" method="_on_speed_button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradesPanel/SpeedButton" to="UpgradesPanel" method="_on_speed_button_mouse_exited"]
+[connection signal="mouse_entered" from="UpgradesPanel/GoldBallButton" to="UpgradesPanel" method="_on_gold_ball_button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradesPanel/GoldBallButton" to="UpgradesPanel" method="_on_gold_ball_button_mouse_exited"]
+[connection signal="timeout" from="MergeDelayTimer" to="." method="_on_MergeDelayTimer_timeout"]

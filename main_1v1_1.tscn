@@ -1,0 +1,357 @@
+[gd_scene load_steps=33 format=3 uid="uid://boe2xn1k5nq1l"]
+
+[ext_resource type="Script" path="res://multi_main.gd" id="1_bu3gg"]
+[ext_resource type="Script" path="res://multi_cloud.gd" id="3_c4g2y"]
+[ext_resource type="Texture2D" uid="uid://n7yy73p1tmkn" path="res://Images/menus/intro_1.png" id="3_d25ws"]
+[ext_resource type="Script" path="res://rule_image.gd" id="3_sdkk2"]
+[ext_resource type="PackedScene" uid="uid://b26vasimh81j0" path="res://1Ball.tscn" id="4_m3rkv"]
+[ext_resource type="Texture2D" uid="uid://dqh7gg44ndjuc" path="res://Images/Backgrounds/2v2_1.png" id="5_jsedl"]
+[ext_resource type="PackedScene" uid="uid://c8m8ly6ximqw1" path="res://2Ball.tscn" id="5_q15hh"]
+[ext_resource type="PackedScene" uid="uid://birswuy5jrtq5" path="res://3Ball.tscn" id="6_mcrn1"]
+[ext_resource type="PackedScene" uid="uid://1wdv0cq14w6f" path="res://4Ball.tscn" id="7_jwict"]
+[ext_resource type="PackedScene" uid="uid://u6qlcb801lku" path="res://5Ball.tscn" id="8_8jbqy"]
+[ext_resource type="PackedScene" uid="uid://cs5dwob6lsrck" path="res://goldBall.tscn" id="9_m0wwn"]
+[ext_resource type="Texture2D" uid="uid://dl4woxsfjlnnl" path="res://Images/Ships/blue.png" id="13_2ksyu"]
+[ext_resource type="Script" path="res://end_game_screen.gd" id="17_25wqj"]
+[ext_resource type="AudioStream" uid="uid://vmvd2u45k4i2" path="res://Sounds/drop.mp3" id="18_2uru1"]
+[ext_resource type="Texture2D" uid="uid://kwwa82tuvhxd" path="res://Images/menus/you_win.png" id="19_76ajc"]
+[ext_resource type="Texture2D" uid="uid://tc6nwdgq3hew" path="res://Images/Ships/pink.png" id="19_em355"]
+[ext_resource type="Script" path="res://multi_cloud_2.gd" id="19_vikj4"]
+[ext_resource type="Texture2D" uid="uid://bcrdn40ffr4y4" path="res://Images/menus/you_lose.png" id="20_ont02"]
+[ext_resource type="Texture2D" uid="uid://c5pyxj0d23uy0" path="res://Images/fx/pop.png" id="20_t7yi1"]
+[ext_resource type="AudioStream" uid="uid://du417csdpt1sl" path="res://Sounds/win.mp3" id="21_jeelc"]
+[ext_resource type="AudioStream" uid="uid://cmbkf8bletes3" path="res://Sounds/bubble-pop.mp3" id="22_1ofbl"]
+[ext_resource type="AudioStream" uid="uid://dsvbv84nbiiws" path="res://Sounds/lose.mp3" id="23_f2y2b"]
+[ext_resource type="Texture2D" uid="uid://b2nqhbuw2xfcd" path="res://Images/fx/pop_cyan.png" id="23_nh8y1"]
+[ext_resource type="Script" path="res://pause_screen.gd" id="25_glg07"]
+[ext_resource type="Texture2D" uid="uid://dcc1y24yc5w1v" path="res://Images/menus/Pause_menu.png" id="26_hvxp6"]
+[ext_resource type="Script" path="res://score_manager.gd" id="27_ra4k2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yuue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nh4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nanrt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vpmv"]
+radius = 5.545
+height = 170.99
+
+[sub_resource type="LabelSettings" id="LabelSettings_qi6nb"]
+font_size = 50
+
+[sub_resource type="Gradient" id="Gradient_0b6v6"]
+offsets = PackedFloat32Array(0, 0.190476, 0.438095, 0.738095, 1)
+colors = PackedColorArray(1, 1, 0.0117647, 1, 0.996876, 0, 0.302102, 1, 0.502443, 0.143558, 1, 1, 7.70092e-07, 0.971114, 0.936036, 1, 1, 1, 1, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_bu3gg")
+
+[node name="RuleImage" type="Control" parent="."]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_sdkk2")
+
+[node name="StartButton" type="Button" parent="RuleImage"]
+process_mode = 3
+top_level = true
+z_index = 1
+layout_mode = 0
+offset_left = 589.0
+offset_top = 550.0
+offset_right = 1016.0
+offset_bottom = 636.0
+mouse_default_cursor_shape = 2
+action_mode = 0
+flat = true
+
+[node name="RuleImageBackground" type="TextureRect" parent="RuleImage"]
+top_level = true
+layout_mode = 0
+offset_left = 399.0
+offset_top = 225.0
+offset_right = 1207.0
+offset_bottom = 677.0
+texture = ExtResource("3_d25ws")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Boop" type="AudioStreamPlayer2D" parent="RuleImage"]
+process_mode = 3
+stream = ExtResource("22_1ofbl")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = ExtResource("5_jsedl")
+
+[node name="Left" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("RectangleShape2D_3yuue")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+
+[node name="Left2" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left2"]
+shape = SubResource("RectangleShape2D_3yuue")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left2"]
+
+[node name="Right" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("RectangleShape2D_0nh4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
+
+[node name="Right2" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right2"]
+shape = SubResource("RectangleShape2D_0nh4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Right2"]
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+shape = SubResource("RectangleShape2D_nanrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottom"]
+
+[node name="Cloud" type="StaticBody2D" parent="."]
+position = Vector2(524.495, 68.455)
+script = ExtResource("3_c4g2y")
+one_ball_scene = ExtResource("4_m3rkv")
+two_ball_scene = ExtResource("5_q15hh")
+three_ball_scene = ExtResource("6_mcrn1")
+four_ball_scene = ExtResource("7_jwict")
+five_ball_scene = ExtResource("8_8jbqy")
+gold_ball_scene = ExtResource("9_m0wwn")
+
+[node name="Line2D" type="Line2D" parent="Cloud"]
+position = Vector2(48.12, 0)
+points = PackedVector2Array(-46.615, -0.455002, -46.615, 777.545)
+width = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud"]
+position = Vector2(0, -0.455)
+scale = Vector2(0.203, 0.195)
+texture = ExtResource("13_2ksyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloud"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0vpmv")
+
+[node name="BallSpawnTimer" type="Timer" parent="Cloud"]
+one_shot = true
+
+[node name="drop" type="AudioStreamPlayer2D" parent="Cloud"]
+position = Vector2(-690.495, -68.455)
+stream = ExtResource("18_2uru1")
+
+[node name="Cloud2" type="StaticBody2D" parent="."]
+position = Vector2(1092.99, 69.91)
+script = ExtResource("19_vikj4")
+one_ball_scene = ExtResource("4_m3rkv")
+two_ball_scene = ExtResource("5_q15hh")
+three_ball_scene = ExtResource("6_mcrn1")
+four_ball_scene = ExtResource("7_jwict")
+five_ball_scene = ExtResource("8_8jbqy")
+gold_ball_scene = ExtResource("9_m0wwn")
+
+[node name="Line2D" type="Line2D" parent="Cloud2"]
+position = Vector2(48.12, 0)
+points = PackedVector2Array(-46.615, -0.455002, -46.615, 777.545)
+width = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud2"]
+position = Vector2(0, -2.45499)
+scale = Vector2(0.203, 0.195)
+texture = ExtResource("19_em355")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloud2"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0vpmv")
+
+[node name="BallSpawnTimer" type="Timer" parent="Cloud2"]
+one_shot = true
+
+[node name="drop" type="AudioStreamPlayer2D" parent="Cloud2"]
+position = Vector2(-690.495, -68.455)
+stream = ExtResource("18_2uru1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 244.0
+offset_top = 288.0
+offset_right = 284.0
+offset_bottom = 328.0
+scale = Vector2(1.665, 1.665)
+
+[node name="scoreLabel" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 482.0
+offset_right = 238.0
+offset_bottom = 551.0
+text = "0"
+label_settings = SubResource("LabelSettings_qi6nb")
+horizontal_alignment = 1
+
+[node name="scoreLabel2" type="Label" parent="."]
+offset_left = 1364.0
+offset_top = 483.0
+offset_right = 1591.0
+offset_bottom = 552.0
+text = "0"
+label_settings = SubResource("LabelSettings_qi6nb")
+horizontal_alignment = 1
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("27_ra4k2")
+
+[node name="MergeDelayTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="EndGameScreen" type="Control" parent="."]
+visible = false
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_25wqj")
+win_texture = ExtResource("19_76ajc")
+lose_texture = ExtResource("20_ont02")
+
+[node name="ConfettiParticles" type="CPUParticles2D" parent="EndGameScreen"]
+process_mode = 2
+emitting = false
+amount = 400
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("20_t7yi1")
+emission_shape = 3
+emission_rect_extents = Vector2(1600, 800)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+scale_amount_min = 0.5
+scale_amount_max = 0.6
+color_ramp = SubResource("Gradient_0b6v6")
+
+[node name="winSound" type="AudioStreamPlayer2D" parent="EndGameScreen"]
+process_mode = 2
+stream = ExtResource("21_jeelc")
+
+[node name="RainParticles" type="CPUParticles2D" parent="EndGameScreen"]
+process_mode = 2
+emitting = false
+amount = 1000
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.4
+draw_order = 1
+texture = ExtResource("23_nh8y1")
+emission_shape = 3
+emission_rect_extents = Vector2(1600, 800)
+direction = Vector2(0, 1)
+spread = 20.0
+gravity = Vector2(0, 250)
+initial_velocity_min = 250.0
+initial_velocity_max = 350.0
+scale_amount_min = 0.5
+
+[node name="loseSound" type="AudioStreamPlayer2D" parent="EndGameScreen"]
+process_mode = 2
+stream = ExtResource("23_f2y2b")
+
+[node name="WinLoseImage" type="TextureRect" parent="EndGameScreen"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 227.0
+offset_right = 1234.0
+offset_bottom = 679.0
+texture = ExtResource("19_76ajc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackToTitleButton" type="Button" parent="EndGameScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 493.0
+offset_top = 508.0
+offset_right = 1097.0
+offset_bottom = 632.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="PauseScreen" type="Control" parent="."]
+process_mode = 2
+visible = false
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("25_glg07")
+
+[node name="Boop" type="AudioStreamPlayer2D" parent="PauseScreen"]
+process_mode = 3
+stream = ExtResource("22_1ofbl")
+
+[node name="EscapeMenuBackground" type="TextureRect" parent="PauseScreen"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 227.0
+offset_right = 1234.0
+offset_bottom = 679.0
+texture = ExtResource("26_hvxp6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContinueButton" type="Button" parent="PauseScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 596.0
+offset_top = 393.0
+offset_right = 1002.0
+offset_bottom = 463.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="RestartButton" type="Button" parent="PauseScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 620.0
+offset_top = 468.0
+offset_right = 980.0
+offset_bottom = 538.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="BackToTitleButton" type="Button" parent="PauseScreen"]
+process_mode = 2
+layout_mode = 0
+offset_left = 522.0
+offset_top = 539.0
+offset_right = 1077.0
+offset_bottom = 613.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[connection signal="timeout" from="MergeDelayTimer" to="." method="_on_MergeDelayTimer_timeout"]

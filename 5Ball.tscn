@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://u6qlcb801lku"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_jt2tq"]
+[ext_resource type="PackedScene" uid="uid://nj4d12k28y21" path="res://6Ball.tscn" id="2_ndfgr"]
+[ext_resource type="PackedScene" uid="uid://d0qei0cweqp31" path="res://MergeEffect.tscn" id="3_ba10v"]
+[ext_resource type="Texture2D" uid="uid://c1xi1hlpmxyy7" path="res://Images/Planets/venus.png" id="4_eacpa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bra7b"]
+friction = 0.5
+bounce = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncq0n"]
+radius = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a5x8"]
+radius = 61.0
+
+[node name="Ball" type="RigidBody2D" groups=["balls"]]
+collision_layer = 3
+collision_mask = 3
+mass = 0.4
+physics_material_override = SubResource("PhysicsMaterial_bra7b")
+script = ExtResource("1_jt2tq")
+ball_type = "five"
+six_ball_scene = ExtResource("2_ndfgr")
+merge_fx_scene = ExtResource("3_ba10v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("4_eacpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ncq0n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7a5x8")
+
+[node name="MergeBallTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

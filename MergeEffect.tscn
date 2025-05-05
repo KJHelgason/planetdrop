@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0qei0cweqp31"]
+
+[ext_resource type="Script" path="res://merge_effect.gd" id="1_4r8vh"]
+[ext_resource type="Texture2D" uid="uid://c5pyxj0d23uy0" path="res://Images/fx/pop.png" id="2_5ohvg"]
+[ext_resource type="AudioStream" uid="uid://cmbkf8bletes3" path="res://Sounds/bubble-pop.mp3" id="2_ucla2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4r8vh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 25
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("2_5ohvg")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ucla2")

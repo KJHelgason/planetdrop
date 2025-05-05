@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://1wdv0cq14w6f"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_uvif6"]
+[ext_resource type="PackedScene" uid="uid://u6qlcb801lku" path="res://5Ball.tscn" id="2_kwe1k"]
+[ext_resource type="PackedScene" uid="uid://d0qei0cweqp31" path="res://MergeEffect.tscn" id="3_xcqhk"]
+[ext_resource type="Texture2D" uid="uid://bmypoqhexlgyw" path="res://Images/Planets/earth.png" id="4_jesgw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bra7b"]
+friction = 0.5
+bounce = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncq0n"]
+radius = 45.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a5x8"]
+radius = 46.0
+
+[node name="Ball" type="RigidBody2D" groups=["balls"]]
+collision_layer = 3
+collision_mask = 3
+mass = 0.4
+physics_material_override = SubResource("PhysicsMaterial_bra7b")
+script = ExtResource("1_uvif6")
+ball_type = "four"
+five_ball_scene = ExtResource("2_kwe1k")
+merge_fx_scene = ExtResource("3_xcqhk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("4_jesgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ncq0n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7a5x8")
+
+[node name="MergeBallTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
