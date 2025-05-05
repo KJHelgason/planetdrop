@@ -1,0 +1,6 @@
+# Godot
+.import/
+.export/
+.godot/
+*.pck
+*.exe
